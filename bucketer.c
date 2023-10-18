@@ -9,6 +9,20 @@ struct CountsBySoH {
 
 struct CountsBySoH countBatteriesByHealth(const int* presentCapacities, int nBatteries) {
   struct CountsBySoH counts = {0, 0, 0};
+  for(int i=0;i<nBatteries;i++){
+    int ratedCapacity = 120;
+    double soh = ((double)presentCapacities[i]/ratedCapacity)*100;
+
+    if(soh>80.0){
+      counts.healthy++;
+    }
+    else if(soh>63.0&&soh<80.0){
+      counts.exchange++;
+    }
+    else{
+      counts.failed++;
+  }
+      
   return counts;
 }
 
