@@ -22,7 +22,7 @@ struct CountsBySoH countBatteriesByHealth(const int* presentCapacities, int nBat
     else{
       counts.failed++;
   }
-      
+  }   
   return counts;
 }
 
